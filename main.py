@@ -2,8 +2,11 @@ import turtle
 import winsound
 
 win = turtle.Screen()
+paddle_pic = "paddle.gif"
+win.addshape(paddle_pic)
 win.title("Pong By SApcPro")
 win.bgcolor("black")
+win.bgpic("background.png")
 win.setup(width=800, height=600)
 win.tracer(0)
 
@@ -14,7 +17,7 @@ score_b = 0
 # Paddle A
 paddle_a = turtle.Turtle()
 paddle_a.speed(0)
-paddle_a.shape("square")
+paddle_a.shape(paddle_pic)
 paddle_a.color("white")
 paddle_a.shapesize(stretch_wid=5, stretch_len=1)
 paddle_a.penup()
@@ -23,7 +26,7 @@ paddle_a.goto(-350, 0)
 # Paddle B
 paddle_b = turtle.Turtle()
 paddle_b.speed(0)
-paddle_b.shape("square")
+paddle_b.shape(paddle_pic) 
 paddle_b.color("white")
 paddle_b.shapesize(stretch_wid=5, stretch_len=1)
 paddle_b.penup()
@@ -33,7 +36,7 @@ paddle_b.goto(350, 0)
 ball = turtle.Turtle()
 ball.speed(0)
 ball.shape("circle")
-ball.color("white")
+ball.color("#e76f51")
 ball.penup()
 ball.goto(0, 0)
 ball.dx = 0.2
@@ -98,6 +101,7 @@ while True:
     if ball.xcor() > 390:
         ball.goto (0, 0)
         ball.dx *= -1
+        winsound.PlaySound("ball.wav", winsound.SND_ASYNC)
         score_a += 1
         pen.clear()
         pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Roboto", 24, "normal"))
@@ -105,6 +109,7 @@ while True:
     if ball.xcor() < -390:
         ball.goto (0, 0)
         ball.dx *= -1
+        winsound.PlaySound("ball.wav", winsound.SND_ASYNC)
         score_b += 1
         pen.clear()
         pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Roboto", 24, "normal"))
@@ -113,7 +118,9 @@ while True:
     if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_b.ycor() + 50 and ball.ycor() > paddle_b.ycor() -50):
         ball.setx(340)
         ball.dx *= -1
+        winsound.PlaySound("ball.wav", winsound.SND_ASYNC)
 
     if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < paddle_a.ycor() + 50 and ball.ycor() > paddle_a.ycor() -50):
         ball.setx(-340)
         ball.dx *= -1
+        winsound.PlaySound("ball.wav", winsound.SND_ASYNC)
