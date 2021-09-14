@@ -1,7 +1,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/Sergij SApcPro/Pong">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="icon.ico" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Pong by SApcPro</h3>
@@ -26,7 +26,7 @@
 
 ## About The Project
 
-![Screen Shot](images/screenshot.png)
+![Screen Shot](screenshot.png)
 
 This is a simple Pong game made by me (SApcPro) on Python. Pong is the first game that I made in Python.
 
